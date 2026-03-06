@@ -12,12 +12,66 @@ interface TroopMarkerProps {
   unit: TroopUnit;
 }
 
+function getUnitType(id: string): "cavalry" | "infantry" | "garrison" {
+  if (id.includes("cav")) return "cavalry";
+  if (id.includes("hougoumont") || id.includes("lhs")) return "garrison";
+  return "infantry";
+}
+
+function NatoSymbol({
+  unitType,
+  color,
+  isRouted,
+}: {
+  unitType: "cavalry" | "infantry" | "garrison";
+  color: string;
+  isRouted: boolean;
+}) {
+  const opacity = isRouted ? 0.4 : 1;
+  const w = 18;
+  const h = 12;
+
+  return (
+    <svg
+      width={w}
+      height={h}
+      viewBox={`0 0 ${w} ${h}`}
+      className="block"
+      style={{ opacity }}
+    >
+      <rect
+        x={1}
+        y={1}
+        width={w - 2}
+        height={h - 2}
+        rx={1}
+        fill={color}
+        stroke="white"
+        strokeWidth={1.2}
+      />
+      {unitType === "infantry" && (
+        <>
+          <line x1={2} y1={2} x2={w - 2} y2={h - 2} stroke="white" strokeWidth={1} />
+          <line x1={w - 2} y1={2} x2={2} y2={h - 2} stroke="white" strokeWidth={1} />
+        </>
+      )}
+      {unitType === "cavalry" && (
+        <line x1={2} y1={h - 2} x2={w - 2} y2={2} stroke="white" strokeWidth={1} />
+      )}
+      {unitType === "garrison" && (
+        <circle cx={w / 2} cy={h / 2} r={2.5} fill="none" stroke="white" strokeWidth={1} />
+      )}
+    </svg>
+  );
+}
+
 export function TroopMarker({ unit }: TroopMarkerProps) {
   const color = getFactionColor(unit.faction);
   const isEngaged = unit.status === "engaged";
   const isRouted = unit.status === "routed";
   const isRetreating = unit.status === "retreating";
   const isAdvancing = unit.status === "advancing";
+  const unitType = getUnitType(unit.id);
 
   return (
     <Tooltip>
@@ -29,63 +83,45 @@ export function TroopMarker({ unit }: TroopMarkerProps) {
         }}
       >
         <div className="relative flex flex-col items-center">
-          {/* Label */}
+          {/* Unit label */}
           <span
-            className="text-[8px] sm:text-[9px] font-semibold whitespace-nowrap mb-0.5 pointer-events-none select-none px-0.5 rounded-sm"
+            className="text-[7px] sm:text-[8px] font-semibold whitespace-nowrap mb-0.5 pointer-events-none select-none px-0.5 rounded-sm leading-tight"
             style={{
               color,
               textShadow:
-                "1px 1px 2px rgba(255,255,255,0.9), -1px -1px 2px rgba(255,255,255,0.9), 0 0 4px rgba(255,255,255,0.8)",
+                "1px 1px 2px rgba(255,255,255,0.95), -1px -1px 2px rgba(255,255,255,0.95), 0 0 6px rgba(255,255,255,0.9)",
             }}
           >
             {unit.name.length > 18 ? unit.name.slice(0, 16) + "…" : unit.name}
           </span>
 
-          {/* Marker dot */}
-          <div className="relative">
+          {/* NATO symbol with engagement pulse */}
+          <div className="relative group-hover:scale-110 transition-transform">
             {isEngaged && (
               <span
-                className="absolute inset-0 rounded-full animate-pulse-ring"
-                style={{ backgroundColor: color, opacity: 0.4 }}
+                className="absolute -inset-1 rounded animate-pulse-ring"
+                style={{ backgroundColor: color, opacity: 0.3 }}
               />
             )}
-            <span
-              className="relative block h-3 w-3 sm:h-3.5 sm:w-3.5 rounded-full border-[1.5px] border-white shadow-sm group-hover:scale-125 transition-transform"
-              style={{
-                backgroundColor: color,
-                opacity: isRouted ? 0.4 : 1,
-              }}
-            >
-              {/* Direction indicator */}
-              {isRetreating && (
-                <svg
-                  viewBox="0 0 10 10"
-                  className="absolute inset-0 w-full h-full"
-                >
-                  <path
-                    d="M2 3 L5 7 L8 3"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth={1.5}
-                    strokeLinecap="round"
-                  />
-                </svg>
-              )}
-              {isAdvancing && (
-                <svg
-                  viewBox="0 0 10 10"
-                  className="absolute inset-0 w-full h-full"
-                >
-                  <path
-                    d="M2 7 L5 3 L8 7"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth={1.5}
-                    strokeLinecap="round"
-                  />
-                </svg>
-              )}
-            </span>
+            <NatoSymbol unitType={unitType} color={color} isRouted={isRouted} />
+
+            {/* Direction arrow below symbol */}
+            {(isRetreating || isAdvancing) && (
+              <svg
+                width={10}
+                height={6}
+                viewBox="0 0 10 6"
+                className="absolute left-1/2 -translate-x-1/2"
+                style={{ top: isAdvancing ? -6 : "100%" }}
+              >
+                {isRetreating && (
+                  <path d="M2 0 L5 5 L8 0" fill="none" stroke={color} strokeWidth={1.2} strokeLinecap="round" />
+                )}
+                {isAdvancing && (
+                  <path d="M2 5 L5 0 L8 5" fill="none" stroke={color} strokeWidth={1.2} strokeLinecap="round" />
+                )}
+              </svg>
+            )}
           </div>
         </div>
       </TooltipTrigger>
