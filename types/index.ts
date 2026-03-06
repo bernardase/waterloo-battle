@@ -13,8 +13,8 @@ export interface TroopUnit {
   faction: Faction;
   commander: string;
   strength: string;
-  x: number;
-  y: number;
+  lat: number;
+  lng: number;
   status: UnitStatus;
   tooltip: string;
 }
