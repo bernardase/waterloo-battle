@@ -76,14 +76,23 @@ function TerrainSVG() {
       </text>
 
       {/* Compass */}
-      <g transform="translate(8, 88)">
-        <circle cx={0} cy={0} r={3} fill="white" opacity={0.5} />
-        <text x={0} y={-0.8} textAnchor="middle" fontSize={2} fill="#4a3520" fontWeight={700}>
+      <g transform="translate(10, 85)">
+        {/* Background - larger to fit all labels */}
+        <circle cx={0} cy={0} r={6.5} fill="white" fillOpacity={0.95} stroke="#5a4a3a" strokeWidth={0.4} />
+        {/* North arrow (triangle pointing up) */}
+        <path d="M 0 -3.2 L -0.45 1 L 0.45 1 Z" fill="#2d3a2d" stroke="none" />
+        {/* Cardinal labels - positioned inside circle with padding */}
+        <text x={0} y={-4} textAnchor="middle" fontSize={1.4} fill="#2d3a2d" fontWeight={700}>
           N
         </text>
-        <line x1={0} y1={-2.5} x2={0} y2={-1.5} stroke="#4a3520" strokeWidth={0.3} />
-        <text x={0} y={2.2} textAnchor="middle" fontSize={1.2} fill="#4a3520">
+        <text x={0} y={3.6} textAnchor="middle" fontSize={1.1} fill="#4a5a4a" fontWeight={500}>
           S
+        </text>
+        <text x={3.8} y={0.35} textAnchor="middle" fontSize={1} fill="#4a5a4a" fontWeight={500}>
+          E
+        </text>
+        <text x={-3.8} y={0.35} textAnchor="middle" fontSize={1} fill="#4a5a4a" fontWeight={500}>
+          W
         </text>
       </g>
 
