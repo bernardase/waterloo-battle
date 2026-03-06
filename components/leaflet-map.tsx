@@ -107,8 +107,8 @@ function AnimatedMarker({ unit }: { unit: TroopUnit }) {
       position={[unit.lat, unit.lng]}
       icon={createTroopIcon(unit)}
     >
-      <Tooltip direction="top" offset={[0, -10]} opacity={0.95}>
-        <div style={{ maxWidth: 220 }}>
+      <Tooltip direction="top" offset={[0, -10]} opacity={0.95} className="troop-tooltip">
+        <div style={{ minWidth: 220, maxWidth: 300 }}>
           <div style={{ fontWeight: 600 }}>{unit.name}</div>
           {unit.commander !== "—" && (
             <div style={{ opacity: 0.7 }}>Cmd: {unit.commander}</div>
@@ -116,7 +116,7 @@ function AnimatedMarker({ unit }: { unit: TroopUnit }) {
           <div style={{ opacity: 0.7 }}>
             {unit.strength} &middot; <span style={{ textTransform: "capitalize" }}>{unit.status}</span>
           </div>
-          <div style={{ opacity: 0.9 }}>{unit.tooltip}</div>
+          <div style={{ opacity: 0.9, marginTop: 2 }}>{unit.tooltip}</div>
         </div>
       </Tooltip>
     </Marker>
@@ -152,6 +152,7 @@ export default function LeafletMap({ troops }: LeafletMapProps) {
         attribution='&copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
         url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
         maxZoom={17}
+        opacity={0.4}
       />
 
       {LOCATIONS.map((loc) => (
@@ -160,7 +161,7 @@ export default function LeafletMap({ troops }: LeafletMapProps) {
           position={[loc.lat, loc.lng]}
           icon={createLocationIcon(loc.type)}
         >
-          <Tooltip direction="bottom" offset={[0, 6]} permanent opacity={0.85}>
+          <Tooltip direction="bottom" offset={[0, 4]} permanent opacity={0.85} className="location-label">
             <span style={{ fontSize: 11, fontWeight: 600, color: "#3a2a10" }}>{loc.name}</span>
           </Tooltip>
         </Marker>
