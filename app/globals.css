@@ -149,9 +149,6 @@
   word-wrap: break-word !important;
 }
 
-.leaflet-tile-pane {
-  opacity: 0.4 !important;
-}
 
 .leaflet-tooltip.troop-tooltip {
   min-width: 240px !important;

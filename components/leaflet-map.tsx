@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import L from "leaflet";
-import { MapContainer, TileLayer, Marker, Tooltip, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Tooltip, useMap, LayersControl } from "react-leaflet";
 import { TroopUnit } from "@/types";
 import { getFactionColor } from "@/data/factions";
 
@@ -148,12 +148,24 @@ export default function LeafletMap({ troops }: LeafletMapProps) {
     >
       <InvalidateSize />
 
-      <TileLayer
-        attribution='&copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-        url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
-        maxZoom={17}
-        opacity={0.4}
-      />
+      <LayersControl position="topright">
+        <LayersControl.BaseLayer checked name="Satellite">
+          <TileLayer
+            attribution='&copy; <a href="https://www.esri.com/">Esri</a> &mdash; World Imagery'
+            url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+            maxZoom={18}
+            opacity={0.4}
+          />
+        </LayersControl.BaseLayer>
+        <LayersControl.BaseLayer name="Topographic">
+          <TileLayer
+            attribution='&copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+            url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
+            maxZoom={17}
+            opacity={0.7}
+          />
+        </LayersControl.BaseLayer>
+      </LayersControl>
 
       {LOCATIONS.map((loc) => (
         <Marker
