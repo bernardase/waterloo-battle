@@ -165,6 +165,14 @@ export default function LeafletMap({ troops }: LeafletMapProps) {
             opacity={0.7}
           />
         </LayersControl.BaseLayer>
+        <LayersControl.BaseLayer name="Altitude">
+          <TileLayer
+            attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://stamen.com/">Stamen Design</a>'
+            url="https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}.png"
+            maxZoom={18}
+            opacity={0.7}
+          />
+        </LayersControl.BaseLayer>
       </LayersControl>
 
       {LOCATIONS.map((loc) => (
