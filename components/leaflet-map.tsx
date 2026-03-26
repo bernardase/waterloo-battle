@@ -157,20 +157,20 @@ export default function LeafletMap({ troops }: LeafletMapProps) {
             opacity={0.4}
           />
         </LayersControl.BaseLayer>
-        <LayersControl.BaseLayer name="Topographic">
+        <LayersControl.BaseLayer name="Street map">
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+            maxZoom={19}
+            opacity={0.85}
+          />
+        </LayersControl.BaseLayer>
+        <LayersControl.BaseLayer name="Contour lines">
           <TileLayer
             attribution='&copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
             url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
             maxZoom={17}
-            opacity={0.7}
-          />
-        </LayersControl.BaseLayer>
-        <LayersControl.BaseLayer name="Altitude">
-          <TileLayer
-            attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://stamen.com/">Stamen Design</a>'
-            url="https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}.png"
-            maxZoom={18}
-            opacity={0.7}
+            opacity={0.95}
           />
         </LayersControl.BaseLayer>
       </LayersControl>
