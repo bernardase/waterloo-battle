@@ -32,7 +32,7 @@ export default function OverviewPage() {
             The Battle of Waterloo
           </h2>
           <p className="text-muted-foreground text-sm">
-            The decisive engagement that ended the Napoleonic Wars — June 18, 1815
+            The battle that ended Napoleon&apos;s rule and brought peace to Europe, June 18, 1815
           </p>
         </div>
 
@@ -47,31 +47,23 @@ export default function OverviewPage() {
           </CardHeader>
           <CardContent className="space-y-3 text-sm leading-relaxed text-muted-foreground">
             <p>
-              On the night of June 17, a violent thunderstorm soaked the Belgian
-              countryside. By dawn the battlefield was a quagmire — sodden fields
-              of rye and wheat, deeply rutted farm tracks, and waterlogged hollows
-              that turned every movement into an ordeal.
+              The night before the battle, a heavy thunderstorm hit the area.
+              By morning the whole battlefield was soaked. The fields were
+              muddy, the roads were soft, and everything was wet.
             </p>
             <p>
-              Napoleon, who relied on rapid manoeuvre and massed artillery,
-              was forced to delay his attack from the planned 9:00 AM until
-              approximately 11:30 AM, waiting for the ground to firm enough for
-              cannonballs to ricochet effectively rather than burying themselves
-              in mud. This three-hour delay proved fateful — it gave the
-              Prussian army under Blücher crucial extra time to march from Wavre
-              and intervene on the battlefield.
+              Because of this, Napoleon had to wait about three hours before
+              attacking. He needed the ground to dry a bit so his cannons would
+              work properly. In wet mud, cannonballs just sink instead of
+              bouncing and causing damage. This delay gave the Prussian army
+              extra time to march to the battlefield and help the Allies.
             </p>
             <p>
-              The mud hampered every arm of the French military. Infantry columns
-              struggled to maintain formation as soldiers sank ankle-deep in
-              mire. Cavalry charges, normally devastating at speed, were slowed
-              to a laboured trot as horses stumbled through the soft ground.
-              Artillery crews found it exhausting to reposition their heavy
-              guns, and the wet earth absorbed much of the impact of cannonballs,
-              dramatically reducing their killing range. The conditions
-              particularly disadvantaged the attacking French, who had to cross
-              the exposed valley under fire while the Allied defenders held the
-              drier, firmer ridge above.
+              The mud made everything harder for the French. Soldiers sank into
+              the ground while marching. Horses struggled to charge through the
+              soft fields. Moving heavy cannons was exhausting. All of this
+              slowed down the French attacks, while the Allied army had the
+              advantage of defending from higher, drier ground on a ridge.
             </p>
           </CardContent>
         </Card>
@@ -85,33 +77,24 @@ export default function OverviewPage() {
           </CardHeader>
           <CardContent className="space-y-3 text-sm leading-relaxed text-muted-foreground">
             <p>
-              In March 1815, Napoleon Bonaparte escaped from exile on the island
-              of Elba and returned to France, rapidly reclaiming power in the
-              dramatic episode known as the Hundred Days. The allied nations of
-              Europe — Britain, Prussia, Austria, and Russia — immediately formed
-              the Seventh Coalition and began mobilising massive armies to depose
-              him once more.
+              In March 1815, Napoleon escaped from his exile on the island of
+              Elba and came back to France, quickly taking power again. The
+              other European nations (Britain, Prussia, Austria, and Russia)
+              joined together to stop him and started gathering their armies.
             </p>
             <p>
-              Napoleon knew he could not defeat all the Coalition armies
-              simultaneously. His strategy was to strike quickly into Belgium,
-              driving a wedge between the two nearest threats: the Duke of
-              Wellington&apos;s Anglo-Allied army and Field Marshal Blücher&apos;s
-              Prussian army. By defeating them separately before Austrian and
-              Russian forces could arrive, he hoped to shatter the Coalition&apos;s
-              resolve and negotiate peace from a position of strength.
+              Napoleon&apos;s plan was to move fast into Belgium and beat the two
+              closest enemy armies one at a time: Wellington&apos;s Allied army
+              and Blücher&apos;s Prussian army, before the others could arrive.
             </p>
             <p>
-              On June 16 he partially succeeded, defeating the Prussians at Ligny
-              and holding Wellington at Quatre Bras. But the Prussians were not
-              destroyed — they retreated north toward Wavre, staying within
-              supporting distance of Wellington. Two days later, on June 18,
-              Napoleon attacked Wellington&apos;s defensive position on the ridge
-              of Mont-Saint-Jean, south of the village of Waterloo. The resulting
-              battle became one of the most consequential engagements in European
-              history, pitting approximately 72,000 French troops against 68,000
-              Allied defenders, with 50,000 Prussians arriving during the
-              afternoon to seal Napoleon&apos;s fate.
+              Two days before Waterloo, he partly succeeded by beating the
+              Prussians at Ligny. But they weren&apos;t fully defeated. They
+              pulled back and stayed close enough to help Wellington later.
+              On June 18, Napoleon attacked Wellington&apos;s position on a ridge
+              near the village of Waterloo. About 72,000 French soldiers faced
+              68,000 Allied defenders, and during the afternoon 50,000 Prussians
+              arrived to tip the balance.
             </p>
           </CardContent>
         </Card>
@@ -125,30 +108,22 @@ export default function OverviewPage() {
           </CardHeader>
           <CardContent className="space-y-3 text-sm leading-relaxed text-muted-foreground">
             <p>
-              The defeat at Waterloo was total. The French army disintegrated
-              during the evening rout, losing roughly 25,000 killed and wounded
-              and another 8,000 captured. Prussian cavalry pursued the fleeing
-              remnants through the night, ensuring the army could not regroup.
-              Napoleon fled to Paris, arriving on June 21.
+              Napoleon lost badly. His army fell apart during the evening.
+              About 25,000 French soldiers were killed or wounded, and another
+              8,000 were captured. Prussian cavalry chased the survivors through
+              the night. Napoleon escaped back to Paris.
             </p>
             <p>
-              Facing a hostile parliament and the rapid advance of Coalition
-              armies, Napoleon abdicated for the second time on June 22, 1815.
-              He initially hoped to escape to the United States, but the Royal
-              Navy blockade made this impossible. On July 15 he surrendered to
-              Captain Maitland aboard HMS Bellerophon, famously throwing himself
-              on the mercy of &ldquo;the most powerful, the most constant, and
-              the most generous of my enemies.&rdquo;
+              Four days later, on June 22, he gave up power for the second time.
+              He tried to flee to America, but the British navy blocked the
+              ports. In July he surrendered to the British.
             </p>
             <p>
-              The British government, determined to prevent another return,
-              exiled Napoleon to the remote South Atlantic island of Saint Helena,
-              over 1,800 kilometres from the nearest land. He spent the remaining
-              six years of his life there, dictating his memoirs and shaping the
-              legend that would endure long after his death on May 5, 1821.
-              Waterloo ended twenty-three years of nearly continuous warfare in
-              Europe and ushered in the Concert of Europe — a period of relative
-              peace that lasted until the Crimean War in 1853.
+              The British sent him to Saint Helena, a tiny island in the
+              middle of the South Atlantic Ocean, far from everything. He lived
+              there for six years until his death on May 5, 1821. The Battle of
+              Waterloo ended over twenty years of war in Europe and brought a
+              long period of peace.
             </p>
           </CardContent>
         </Card>

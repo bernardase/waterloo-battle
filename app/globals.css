@@ -142,35 +142,3 @@
 .animate-pulse-ring {
   animation: pulse-ring 1.5s ease-out infinite;
 }
-
-.leaflet-tooltip {
-  max-width: 300px !important;
-  white-space: normal !important;
-  word-wrap: break-word !important;
-}
-
-
-.leaflet-tooltip.troop-tooltip {
-  min-width: 240px !important;
-  max-width: 320px !important;
-  padding: 8px 10px !important;
-}
-
-.leaflet-tooltip.location-label {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  white-space: nowrap !important;
-  max-width: none !important;
-  z-index: 0 !important;
-  pointer-events: none !important;
-  text-shadow:
-    1px 1px 2px rgba(255, 255, 255, 0.9),
-    -1px -1px 2px rgba(255, 255, 255, 0.9),
-    0 0 4px rgba(255, 255, 255, 0.8);
-}
-
-.leaflet-tooltip.location-label::before {
-  display: none !important;
-}
